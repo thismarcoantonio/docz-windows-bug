@@ -1,0 +1,125 @@
+---
+name: AppBar
+---
+
+# AppBar
+---
+import { Playground } from "docz";
+import AppBar from "./index.tsx";
+import Props from "react-docgen-props-table";
+import userImage from "../../images/user-mockup.jpg";
+import {
+  NotificationImportant as NotificationIcon,
+  Feedback as MessageIcon,
+  List as ListIcon
+} from "@material-ui/icons";
+
+## Basic example
+```tsx
+...
+import { AppBar } from "energisa-ui";
+
+function MyComponent() {
+  return (
+    ...
+      <AppBar {...} />
+    ...
+  );
+}
+...
+```
+
+## Usage
+<Playground>
+  <AppBar logo="" />
+  <br />
+  <AppBar
+    userImage={userImage}
+    logo={<h1 style={{ fontSize: 24, margin: 0 }}>Logo</h1>}
+  />
+</Playground>
+
+## Custom actions
+<Playground>
+  <AppBar
+    logo=""
+    actions={<h2 style={{ fontSize: 18, margin: 0 }}>Custom Actions</h2>}
+  />
+</Playground>
+
+## Search bar
+<Playground>
+  <AppBar
+    logo=""
+    onSearch={() => {}}
+  />
+</Playground>
+
+## Notifications
+<Playground>
+  <AppBar
+    logo=""
+    notifications={[
+      {
+        icon: <NotificationIcon />,
+        title: "Notifications",
+        items: [
+          { icon: <MessageIcon />, status: "info", label: "5 New newsletters", date: new Date("2019-08-15") },
+          { status: "warning", label: "New collection Saved", date: new Date() },
+          { status: "success", label: "Task added successfully", date: new Date() },
+          { status: "error", label: "Member Jason removed", date: new Date() }
+        ]
+      },
+      {
+        icon: <MessageIcon />,
+        title: "Messages",
+        items: [
+          { status: "info", label: "5 New newsletters", date: new Date("2007-08-15") },
+          { status: "warning", label: "New collection Saved", date: new Date() },
+          { status: "success", label: "Task added successfully", date: new Date() }
+        ]
+      },
+      {
+        icon: <ListIcon />,
+        title: "tasks",
+        items: [
+          { status: "info", label: "5 New newsletters", date: new Date() },
+          { status: "warning", label: "New collection Saved", date: new Date() },
+          { status: "success", label: "Task added successfully", date: new Date() },
+          { status: "error", label: "Member Jason removed", date: new Date() }
+        ]
+      }
+    ]}
+  />
+</Playground>
+
+## Props
+<Props
+  props={{
+    "logo": {
+      "required": true,
+      "type": { "name": "enum", "value": [{ "value": "string" }, { "value": "Jsx" }] },
+      "description": "..."
+    },
+    "userImage": {
+      "required": false,
+      "type": { "name": "string" },
+      "description": "..."
+    },
+    "actions": {
+      "required": false,
+      "type": { "name": "Jsx" },
+      "description": "..."
+    },
+    "onSearch": {
+      "required": false,
+      "type": { "name": "Function" },
+      "description": "..."
+    },
+    "notifications": {
+      "required": false,
+      "type": { "name": "Array" },
+      "description": "..."
+    }
+  }}
+/>
